@@ -8,7 +8,6 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isAuth = Boolean(request.cookies.get("accessToken")?.value);
 
-  console.log("isAuth", isAuth);
   // not login
   if (privatePaths.some((path) => pathname.startsWith(path)) && !isAuth) {
     return NextResponse.redirect(new URL("/login", request.url));

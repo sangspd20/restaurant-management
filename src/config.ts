@@ -14,7 +14,7 @@ if (!result.success) {
   console.error(result.error);
   throw new Error("Invalid environment variables");
 } else {
-  console.log(result.data); // typed and validated!
+  //console.log(result.data); // typed and validated!
 }
 
 const envConfig = result.data;
