@@ -12,6 +12,7 @@ interface FormInputProps<T extends FieldValues> {
   type?: string;
   required?: boolean;
   className?: string;
+  inputClassName?: string;
 }
 
 export function FormInput<T extends FieldValues>({
@@ -22,6 +23,7 @@ export function FormInput<T extends FieldValues>({
   type = "text",
   required = false,
   className = "grid gap-2",
+  inputClassName = "w-full",
 }: FormInputProps<T>) {
   return (
     <FormField
@@ -37,6 +39,7 @@ export function FormInput<T extends FieldValues>({
               placeholder={placeholder}
               required={required}
               {...field}
+              className={inputClassName}
             />
             <FormMessage />
           </div>
