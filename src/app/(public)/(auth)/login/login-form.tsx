@@ -17,6 +17,7 @@ import { useLoginMutation } from "@/queries/useAuth";
 import { toast } from "@/hooks/use-toast";
 import { handleErrorApi } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { FormInput } from "@/components/form";
 
 export default function LoginForm() {
   const loginMutation = useLoginMutation();
@@ -59,7 +60,15 @@ export default function LoginForm() {
             })}
           >
             <div className="grid gap-4">
-              <FormField
+              <FormInput
+                control={form.control}
+                name="email"
+                label="Email"
+                placeholder="m@example.com"
+                type="email"
+                required
+              />
+              {/* <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
@@ -77,8 +86,16 @@ export default function LoginForm() {
                     </div>
                   </FormItem>
                 )}
+              /> */}
+
+              <FormInput
+                control={form.control}
+                name="password"
+                label="Password"
+                type="password"
+                required
               />
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="password"
                 render={({ field }) => (
@@ -97,7 +114,7 @@ export default function LoginForm() {
                     </div>
                   </FormItem>
                 )}
-              />
+              /> */}
               <Button type="submit" className="w-full">
                 Đăng nhập
               </Button>
